@@ -37,6 +37,24 @@ module.exports = class Movie {
       cb(movie);
     });
   }
+  static GetMoviesByFilter(gender, cb) {
+    GetAllMoviesFromFile((movies) => {
+      const moviesFiltered = movies.filter(p => p.gender === gender);
+      cb(moviesFiltered);
+    });
+  }
+
+  static Delete(id) {
+    GetAllMoviesFromFile((movies) => {
+      const movie = movies.find((p) => p.id === id);
+
+      const newMoviesList = movies.filter( movies => movies.id !== id)
+
+      fs.writeFile(dataPath, JSON.stringify(newMoviesList), function (error) {
+        console.log(error);
+      });
+    });
+  }
 
   Save() {
     GetAllMoviesFromFile((movies) => {

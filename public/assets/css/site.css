@@ -14,3 +14,11 @@
     background: red;
     color:#fff
 }
+.card{
+    box-sizing: border-box;
+}
+.cardImages {
+    min-height: 175px;
+    max-height: 375px;
+}
+

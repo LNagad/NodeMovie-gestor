@@ -80,5 +80,12 @@ exports.postEditMovie = (req, res, next) => {
     movie.Update();
   }
 
-  res.status(302).redirect("/");
+  res.status(302).redirect("/admin/admin");
 };
+
+exports.postDeleteMovie = (req,res,next) => {
+  const movieId = req.params.movieId;
+
+  MovieModel.Delete(movieId)
+  res.status(302).redirect("/admin/admin");
+}

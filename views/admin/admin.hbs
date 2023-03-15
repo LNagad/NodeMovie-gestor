@@ -1,23 +1,23 @@
 <main>
   <h1 class="fw-bold mb-3 text-center">Admin page</h1>
 
-  <div class="col-12 offset-12 col-sm-12 offset-sm-12 d-flex justify-content-evenly">
+  <div class="col-12 offset-12 col-sm-12 offset-sm-12 d-flex justify-content-evenly flex-wrap">
     {{#each moviesList as |movie|}}
-      <div class="col-3">
-        <div class="card">
-          <img src="{{movie.imageUrl}}" class="card-img-top" alt="{{movie.name}}">
-          <div class="card-body">
-            <h5 class="card-title">{{movie.name}}</h5>
-            <p class="card-text">Description: {{movie.description}}</p>
-            <p class="card-text">Genero: {{movie.gender}}</p>
-            <p class="card-text">Estado: {{#if movie.status}} Activa{{else }}Inactiva{{/if}}</p>
-            <div>
-              <a href="#" class="float-end btn btn-danger">Delete</a>
-              <a href="/admin/edit-movie/{{this.id}}?edit=true" class="float-end me-2 btn btn-warning">Edit</a>
-            </div>
+    <div class="col-2 col-lg-2 col-sm-12">
+      <div class="card">
+        <img src="{{movie.imageUrl}}" class="card-img-top cardImages" alt="{{movie.name}}">
+        <div class="card-body">
+          <h5 class="card-title">{{movie.name}}</h5>
+          <p class="card-text">Description: {{movie.description}}</p>
+          <p class="card-text">Genero: {{movie.gender}}</p>
+          <p class="card-text">Estado: {{#if movie.status}} Activa{{else }}Inactiva{{/if}}</p>
+          <div>
+            <a href="/admin/delete-movie/{{movie.id}}" class="float-end btn btn-danger">Delete</a>
+            <a href="/admin/edit-movie/{{movie.id}}?edit=true" class="float-end me-2 btn btn-warning">Edit</a>
           </div>
         </div>
       </div>
+    </div>
     {{/each}}
   </div>
 </main>

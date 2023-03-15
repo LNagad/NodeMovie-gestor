@@ -11,4 +11,6 @@ router.post('/add-movie', adminController.postAddMovie)
 router.get('/edit-movie/:movieId', adminController.getEditMoviePage)
 router.post('/edit-movie', adminController.postEditMovie)
 
+router.get('/delete-movie/:movieId', adminController.postDeleteMovie)
+
 module.exports = router
