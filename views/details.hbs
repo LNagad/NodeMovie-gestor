@@ -1,0 +1,20 @@
+<main class="col-8 offset-2">
+    <div class="row gx-4 gx-lg-5 align-items-center">
+        <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0"
+                src="{{movie.imageUrl}}" alt="https://dummyimage.com/600x700/dee2e6/6c757d.jpg"></div>
+        <div class="col-md-6">
+            <h1 class="display-5 fw-bolder">{{movie.name}}</h1>
+            <div class="fs-5 mb-3 d-flex flex-column">
+                <span>Genero: {{movie.gender}}</span>
+                <span>Estado: {{#if movie.status}}Activa{{else}}Inactiva{{/if}}</span>
+            </div>
+            <p class="lead">{{movie.description}}</p>
+            <div class="d-flex">
+                <a href="/" class="btn btn-outline-dark flex-shrink-0" type="button">
+                    <i class="bi-cart-fill me-1"></i>
+                    Volver atras
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
