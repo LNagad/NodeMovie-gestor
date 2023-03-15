@@ -1,6 +1,6 @@
 
 
-const maxCaracteres = 50;
+const maxCaracteres = 80;
 const misParrafos = document.querySelectorAll(".card-text");
 
 misParrafos.forEach((parrafo) => {
@@ -8,7 +8,7 @@ misParrafos.forEach((parrafo) => {
 
     if (contenido.length > maxCaracteres) {
       const contenidoTruncado = contenido.substring(0, maxCaracteres);
-      parrafo.innerHTML = contenidoTruncado + '...<a href="#">Leer más</a>';
+      parrafo.innerHTML = contenidoTruncado + '...';
     }
 
 });

@@ -11,6 +11,17 @@ exports.getHomePage = (req, res, next) => {
   });
 };
 
+exports.getMovieDetailsPage = (req, res, next) => {
+  const movieId = req.params.movieId;
+
+  MovieModel.GetById(movieId, (movie) => {
+    res.status(200).render('details', {
+      title: 'Details',
+      movie: movie
+    })
+  })
+}
+
 exports.getMoviesFiltered = (req, res, net) => {
   const gender = req.body.MovieFilter;
   
