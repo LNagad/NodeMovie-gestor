@@ -1,0 +1,16 @@
+.movieStatus {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.movieStatus.active{
+    background: green;
+    color:#fff
+}
+
+.movieStatus.inactive{
+    background: red;
+    color:#fff
+}

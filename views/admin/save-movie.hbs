@@ -1,0 +1,69 @@
+<main>
+  <div class="col-12 offset-12 col-sm-12 offset-sm-12 col-lg-6 offset-lg-3">
+    <div class="card">
+      <div class="card-header bg-dark text-center text-white fw-bold">
+        <h5>{{#if editMode}} Editing movie <span class="text-danger">{{movie.name}}</span> {{else}} Add new movie {{/if}}</h5>
+      </div>
+      <div class="card-body">
+        <form method="POST" action="{{#if editMode}}/admin/edit-movie{{else}}/admin/add-movie{{/if}}">
+          <div class="mb-3">
+            <label class="form-label" for="Name">Name: </label>
+            <input class="form-control" type="text" id="Name" name="Name"
+              value="{{#if editMode}}{{movie.name}}{{/if}}">
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="Description">Description: </label>
+            <textarea class="form-control" name="Description" id="Description" cols="30" rows="5">{{#if editMode}}{{movie.description}}{{/if}}
+              </textarea>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="ImageUrl">ImageUrl: </label>
+            <input class="form-control" type="text" id="ImageUrl" name="ImageUrl"
+              value="{{#if editMode}}{{movie.imageUrl}}{{/if}}">
+          </div>
+          {{#if editMode}}
+          <div class="mb-3">
+            <label class="form-label" for="Status">Status: </label>
+            <div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="Status" value="true" id="StatusActive"
+                 {{#if movie.status}}checked{{/if}} >
+                <label class="form-check-label" for="StatusActive">
+                  Active
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="Status" value="false" id="StatusInactive" 
+                {{#if (radioNotChecked movie.status)}} {{else}}checked{{/if}}>
+                <label class="form-check-label" for="StatusInactive">
+                  Inactive
+                </label>
+              </div>
+            </div>
+            <input class="form-control" type="hidden" id="Id" name="Id" value="{{movie.id}}">
+          </div>
+          {{/if}}
+          <div class="mb-3">
+            <label class="form-label" for="Gender">Gender: </label>
+            <select class="form-select" name="Gender" id="Gender">
+              <option value="">Select an option</option>
+              <option {{#if (defaultOptionSelect "Accion" movie.gender) }} selected {{/if}} value="Accion">Accion
+              </option>
+              <option {{#if (defaultOptionSelect "Terror" movie.gender) }} selected {{/if}} value="Terror">Terror
+              </option>
+              <option {{#if (defaultOptionSelect "Comedia" movie.gender) }} selected {{/if}} value="Comedia">Comedia
+              </option>
+              <option {{#if (defaultOptionSelect "Suspenso" movie.gender) }} selected {{/if}} value="Suspenso">Suspenso
+              </option>
+              <option {{#if (defaultOptionSelect "Documental" movie.gender) }} selected {{/if}} value="Documental">
+                Documental</option>
+            </select>
+          </div>
+          <div>
+            <button class="btn btn-outline-success float-end" type="submit">{{#if editMode}} Update {{else}} Save {{/if}}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>

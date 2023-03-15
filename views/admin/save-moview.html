@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../public/assets/lib/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+    
+<main>
+    <div class="col-12 offset-12 col-sm-12 offset-sm-12 col-lg-6 offset-lg-3">
+        <div class="card">
+            <div class="card-header bg-primary text-center text-white fw-bold">
+                <h5>Add new movie</h5>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="/admin/add-movie">
+                    <div class="mb-3">
+                        <label class="form-label" for="Name">Name: </label>
+                        <input class="form-control" type="text" id="Name" name="Name">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="Description">Description: </label>
+                        <textarea class="form-control" name="Description" id="Description" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="Gender">Gender: </label>
+                        <select class="form-select" name="Gender" id="Gender" >
+                            <option value="">Selecciona una opcion</option>
+                            <option value="Accion">Accion</option>
+                            <option value="Terror">Terror</option>
+                            <option value="Comedia">Comedia</option>
+                            <option value="Suspenso">Suspenso</option>
+                            <option value="Documental">Documental</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary float-end" type="submit">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
